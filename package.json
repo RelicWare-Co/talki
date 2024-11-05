@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "bunx --bun vite",
+    "build": "bunx --bun vite build",
     "preview": "cross-env NODE_ENV=production tsx ./hono-entry.node.ts",
     "lint": "biome lint --write .",
     "format": "biome format --write .",
@@ -10,26 +10,29 @@
     "drizzle:studio": "drizzle-kit studio"
   },
   "dependencies": {
-    "drizzle-kit": "^0.26.2",
-    "drizzle-orm": "^0.35.3",
-    "dotenv": "^16.4.5",
-    "better-sqlite3": "^11.5.0",
     "@hono/node-server": "^1.13.3",
-    "@universal-middleware/hono": "^0.2.12",
-    "hono": "^4.6.7",
-    "arctic": "^2.0.1",
-    "cookie": "^1.0.1",
-    "lucia": "^3.2.2",
-    "@universal-middleware/core": "^0.2.13",
     "@lucia-auth/adapter-drizzle": "^1.1.0",
-    "@vitejs/plugin-react": "^4.3.3",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "vike-react": "^0.5.7",
+    "@mantine/core": "^7.13.4",
+    "@mantine/hooks": "^7.13.4",
     "@ts-rest/core": "^3.51.0",
     "@ts-rest/serverless": "^3.51.0",
-    "@mantine/core": "^7.13.4",
-    "@mantine/hooks": "^7.13.4"
+    "@types/bun": "^1.1.13",
+    "@universal-middleware/core": "^0.2.13",
+    "@universal-middleware/hono": "^0.2.12",
+    "@vitejs/plugin-react": "^4.3.3",
+    "arctic": "^2.0.1",
+    "better-sqlite3": "^11.5.0",
+    "cookie": "^1.0.1",
+    "crossws": "^0.3.1",
+    "dotenv": "^16.4.5",
+    "drizzle-kit": "0.27.1",
+    "drizzle-orm": "0.36.0",
+    "hono": "^4.6.7",
+    "lucia": "^3.2.2",
+    "nanoid": "^5.0.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vike-react": "^0.5.7"
   },
   "devDependencies": {
     "typescript": "^5.6.3",
@@ -49,5 +52,6 @@
     "postcss-preset-mantine": "^1.17.0",
     "postcss-simple-vars": "^7.0.1"
   },
-  "type": "module"
+  "type": "module",
+  "packageManager": "npm@10.8.2+sha512.c7f0088c520a46596b85c6f8f1da943400199748a0f7ea8cb8df75469668dc26f6fb3ba26df87e2884a5ebe91557292d0f3db7d0929cdb4f14910c3032ac81fb"
 }

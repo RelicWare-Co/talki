@@ -1,5 +1,6 @@
 import "./style.css";
-import React, { useState } from "react";
+import { useState } from "react";
+import type React from "react"
 import { navigate } from "vike/client/router";
 
 type ValidationError = { username: string | null; password: string | null; invalid?: string };
@@ -28,10 +29,10 @@ export default function Page() {
         headers: { "Content-Type": "application/json" },
       });
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const result: Record<string, any> = await response.json();
+      const result: Record<string, unknown> = await response.json();
       if ("error" in result) {
         console.error("A validation error has occurred :", result.error);
-        setError(result.error);
+        setError(result.error as ValidationError);
       } else {
         await navigate("/");
       }

@@ -2,21 +2,10 @@ import "dotenv/config";
 import { Lucia, type Register } from "lucia";
 import { GitHub } from "arctic";
 import { DrizzleSQLiteAdapter } from "@lucia-auth/adapter-drizzle";
-import { dbSqlite } from "../database/drizzle/db";
+import type { dbSqlite } from "../database/drizzle/db";
 import { sessionTable, userTable } from "../database/drizzle/schema/lucia-auth";
 
-/**
- * Polyfill needed if you're using Node.js 18 or below
- *
- * @link {@see https://lucia-auth.com/getting-started/#polyfill}
- */
-if (!globalThis.crypto) {
-  Object.defineProperty(globalThis, "crypto", {
-    value: await import("node:crypto").then((crypto) => crypto.webcrypto as Crypto),
-    writable: false,
-    configurable: true,
-  });
-}
+
 
 export function initializeLucia(db: ReturnType<typeof dbSqlite>) {
   /**
